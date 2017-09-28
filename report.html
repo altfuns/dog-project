@@ -13788,7 +13788,7 @@ The percentage of detected dogs on dog_files is: 1.0
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> In the following Network architecture I use a mix of Convolutional layers and Max Polling layers, this mix will increase the deep of each layer with Convoluational layer, then the Max Polling will reduce the space (width and height) of each layer. At the final Max Polling layer the network will have filters that help to distinguish between dog breeds. The drop out layers are an experiment in order to minimize overfitting. The last dense layer give us a probality for each of the 133 dog breeds.</p>
 
 </div>
 </div>
@@ -14423,7 +14423,7 @@ test_{network} = bottleneck_features['test']</code></pre>
 
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> The technique used on the CNN is tranfer learning, I took the shape and filters of the Inception neural network and the add final dense layer in order to clasify and get a probabilty for each of the 133 dog breeds.</p>
 
 </div>
 </div>
@@ -14786,7 +14786,14 @@ Epoch 20/20
 <h2 id="Step-7:-Test-Your-Algorithm">Step 7: Test Your Algorithm<a class="anchor-link" href="#Step-7:-Test-Your-Algorithm">&#182;</a></h2><p>In this section, you will take your new algorithm for a spin!  What kind of dog does the algorithm think that <strong>you</strong> look like?  If you have a dog, does it predict your dog's breed accurately?  If you have a cat, does it mistakenly think that your cat is a dog?</p>
 <h3 id="(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">(IMPLEMENTATION) Test Your Algorithm on Sample Images!<a class="anchor-link" href="#(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">&#182;</a></h3><p>Test your algorithm at least six images on your computer.  Feel free to use any images you like.  Use at least two human and two dog images.</p>
 <p><strong>Question 6:</strong> Is the output better than you expected :) ?  Or worse :( ?  Provide at least three possible points of improvement for your algorithm.</p>
-<p><strong>Answer:</strong> It is as expected :). It can be improved by detecting faces of babies, implement better user interface to get images and show the dog breed, and mix a dog image with the human one.</p>
+<p><strong>Answer:</strong> The out is as expected. In the case of dog breed prediction it gets confused when there dog breed that has the same colors and are similar, but differ in the size of the animal. For example, in the image number 6, the algoritm detects a Gordon Setter, which is similar in colors as an English toy spaniel.</p>
+<p>Then predicting a dog breed based on a human image its funny, I think the human nose it's a relevant feature that is guiding the prediction.</p>
+<p>The algorithm can be improved by:</p>
+<ol>
+<li>Distinguish between large and small dog breeds.</li>
+<li>Detecting babies as humans, I the baby wasn't recognized becasuse there isn't babies images in the training data set.</li>
+<li>The algorithm can show to the user to top 3 dog breeds with higher probabilities.</li>
+</ol>
 
 </div>
 </div>
